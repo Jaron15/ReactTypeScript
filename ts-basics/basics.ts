@@ -74,4 +74,4 @@ const updatedArray = insertAtBeginning(demoArray, -1) //[-1, 1, 2, 3]
 const stringArray = insertAtBeginning(['a', 'b', 'c'], 'd')
 
 //this gets an error bc T has been read to be numbers for updatedArray
-updatedArray[0].split('')
+// updatedArray[0].split('')
