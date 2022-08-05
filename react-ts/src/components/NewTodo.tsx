@@ -1,7 +1,7 @@
 import React, {useRef} from 'react'
 
-
-const NewTodo = () => {
+//passing in the addTodo function which expexts a string as an argument and doesnt return anything
+const NewTodo: React.FC<{onAddTodo: (text : string) => void}> = (props) => {
     //inputRef types can be found under HMTL(*type*)Element
     const todoTextInputRef = useRef<HTMLInputElement>(null);
 
@@ -16,6 +16,8 @@ const NewTodo = () => {
             // throw an error 
             return;
         }
+
+        props.onAddTodo(enteredText);
     }
   return (
     <form onSubmit={submitHandler}>
