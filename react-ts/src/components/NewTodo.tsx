@@ -1,4 +1,5 @@
 import React, {useRef} from 'react'
+import classes from './NewTodo.module.css';
 
 //passing in the addTodo function which expexts a string as an argument and doesnt return anything
 const NewTodo: React.FC<{onAddTodo: (text : string) => void}> = (props) => {
@@ -20,7 +21,7 @@ const NewTodo: React.FC<{onAddTodo: (text : string) => void}> = (props) => {
         props.onAddTodo(enteredText);
     }
   return (
-    <form onSubmit={submitHandler}>
+    <form className={classes.form} onSubmit={submitHandler}>
         <label htmlFor='text'>Todo text</label>
         <input type="text" id="text" ref={todoTextInputRef} /> 
         <button>Add Todo</button>
