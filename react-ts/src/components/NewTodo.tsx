@@ -1,8 +1,11 @@
-import React, {useRef} from 'react'
+import React, {useRef, useContext} from 'react'
 import classes from './NewTodo.module.css';
+import { TodosContext } from '../store/todos-context';
 
 //passing in the addTodo function which expexts a string as an argument and doesnt return anything
-const NewTodo: React.FC<{onAddTodo: (text : string) => void}> = (props) => {
+const NewTodo: React.FC = () => {
+    const todosCtx = useContext(TodosContext);
+
     //inputRef types can be found under HMTL(*type*)Element
     const todoTextInputRef = useRef<HTMLInputElement>(null);
 
@@ -18,7 +21,7 @@ const NewTodo: React.FC<{onAddTodo: (text : string) => void}> = (props) => {
             return;
         }
 
-        props.onAddTodo(enteredText);
+        todosCtx.addTodo(enteredText);
     }
   return (
     <form className={classes.form} onSubmit={submitHandler}>
